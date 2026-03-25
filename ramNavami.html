@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jai Shree Ram</title>
+
+    <style>
+        body{
+            margin:0;
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:black;
+            font-family:Arial;
+            overflow:hidden;
+        }
+
+        .container{
+            width:360px;
+                height:640px;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            background:black;
+            position:relative;
+            border-radius:20px;
+            overflow:hidden;
+        }
+
+        .ram-btn{
+            padding:12px 30px;
+            font-size:18px;
+            color:orange;
+            background:transparent;
+            border:2px solid orange;
+            border-radius:8px;
+            cursor:pointer;
+            transition:0.3s;
+            box-shadow:0 0 10px orange,0 0 20px orange;
+            z-index:2;
+        }
+
+        .text{
+            margin-top:20px;
+            font-size:36px;
+            color:orange;
+            opacity:0;
+            transform:scale(0.5);
+            transition:0.5s;
+            text-shadow:0 0 10px orange,0 0 20px orange,0 0 40px orange;
+            z-index:2;
+            text-align:center;
+        }
+
+        .show{
+            opacity:1;
+            transform:scale(1.1);
+        }
+
+        .ram-img{
+             width:400px;
+            margin-top:15px;
+            opacity:0;
+            transform:translateY(40px);
+            transition:0.8s;
+            border-radius:10px;
+            z-index:2;
+        }
+
+        .img-show{
+            opacity:1;
+            transform:translateY(0);
+        }
+
+        .flower{
+            position:absolute;
+            top:-50px;
+            font-size:18px;
+            animation:fall linear infinite;
+        }
+
+        @keyframes fall{
+            0%{transform:translateY(0) rotate(0deg);}
+         100%{transform:translateY(700px) rotate(360deg);}
+        }
+    </style>
+    </head>
+
+    <body>
+
+        <div class="container">
+
+            <button class="ram-btn" onclick="showContent()">Click🚩</button>
+
+                <div id="ramText" class="text">🚩 जय श्री राम 🚩</div>
+
+                    <img id="ramImage" class="ram-img"
+                    src="shreeRam.png">
+
+                    <audio id="sound" src="https://www.soundjay.com/buttons/sounds/button-3.mp3"></audio>
+
+        </div>
+
+        <script>
+            function showContent(){
+                document.getElementById("ramText").classList.add("show");
+                document.getElementById("ramImage").classList.add("img-show");
+                document.getElementById("sound").play();
+                startFlowers();
+            }
+
+            function startFlowers(){
+                setInterval(()=>{
+                    let flower=document.createElement("div");
+                    flower.classList.add("flower");
+
+                    let types=["🌸","🌺","🌼","🌻","💮"];
+                    flower.innerHTML=types[Math.floor(Math.random()*types.length)];
+
+                    flower.style.left=Math.random()*360+"px";
+                    flower.style.animationDuration=(Math.random()*3+2)+"s";
+
+                    document.querySelector(".container").appendChild(flower);
+
+                setTimeout(()=>{flower.remove();},5000);
+                },150);
+            }
+        </script>
+
+    </body>
+</html>
+
