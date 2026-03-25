@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        .Container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: absolute;
+            width: 100%;
+            z-index:-9;
+            background-color: black;
+        }
+        .box{
+            background-color: pink;
+            height: 200px;
+            width: 200px;
+            position: relative;
+            border-radius: 50%;
+        }
+        .box::after{
+            content: "";
+            position: absolute;
+            height: 210px;
+            width: 210px;
+            background: conic-gradient(red 0deg 90deg ,yellow 90deg 180deg, green 180deg 270deg ,blue 270deg 360deg);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            border-radius: 50%;
+            z-index: -1;
+            box-shadow: 0px 0px 70px 0px red;
+            animation: rotate 2s linear infinite;
+        }
+
+        @keyframes rotate{
+            from{
+                transform: translate(-50%,-50%) rotate(0deg);
+            }
+            to{
+                transform: translate(-50%,-50%) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="Container">
+        <div class="box">
+
+        </div>
+    </div>
+</body>
+</html>
