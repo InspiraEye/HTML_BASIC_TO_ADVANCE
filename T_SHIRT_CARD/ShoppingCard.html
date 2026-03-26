@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-Shirt Card</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400&family=Work+Sans:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Josefin Sans", sans-serif;
+           
+        }
+
+        .Container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+       .card {
+            width: 280px;
+            padding: 20px;
+            padding-bottom: 0;
+            border-radius: 20px;
+            background: #ffffff;
+
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            height: 200px;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+            transition: all 0.3s ease;
+        }
+
+        .ImgBox {
+            display: flex;
+            justify-content: center;
+        }
+
+        img {
+            height: 200px;
+            filter: drop-shadow(0 10px 15px rgba(170, 170, 170, 0.451));
+        }
+
+        .DisNon {
+            display: none;
+        }
+
+        .Price-section {
+            display: flex;
+            justify-content: space-between;
+        }
+        img {
+            height: 200px;
+            transition: 0.5s;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ImgBox {
+            margin-top: -70px;
+        }
+
+        .card:hover img {
+            transform: translateY(-10px) scale(1.15);
+        }
+        .priceBox {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            
+        }
+
+        .price-discounted {
+            font-family: "Work Sans", sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .price-original {
+            text-decoration: line-through;
+            color: gray;
+        }
+
+        .star {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background: #ff9100;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        label {
+            font-size: 14px;
+            margin-bottom: 3px;
+                        margin-top: 10px;
+
+        }
+
+        .color-section {
+            display: flex;
+            flex-direction: column;
+            border: 2px solid rgb(150, 150, 150);
+            border-left: none;
+            border-bottom: none;
+            border-right: none;
+        }
+
+        .ColorChoice {
+            display: flex;
+            gap: 6px;
+        }
+
+        .color-box {
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .color-box.active {
+            border: 2px solid #888;
+        }
+
+        .green { background: #0ba900; }
+        .red { background: #fa0000; }
+        .violet { background: #8b4dff; }
+
+        .size-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .SizeChoice {
+            display: flex;
+            gap: 6px;
+        }
+
+        .size-box {
+            padding: 5px 10px;
+            background: #d8d8d8;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .size-box:hover {
+            background: #a855f7;
+            color: white;
+        }
+
+        .size-active {
+            background: #403f3f;
+            color: white;
+        }
+
+        .btnBox {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background: #a63ce3;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #9333ea;
+        }
+        
+
+        .hover-content {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+     
+        .card:hover .hover-content {
+            opacity: 1;
+            max-height: 500px;
+        }
+
+  
+        .card {
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            padding-bottom: 20px;
+            height: max-content;
+        } 
+    </style>
+</head>
+
+<body>
+
+<div class="Container">
+    <div class="card">
+
+        <div class="ImgBox">
+            <img id="greenImg" src="Tshirt.png">
+            <img id="redImg" class="DisNon" src="red.png">
+            <img id="violetImg" class="DisNon" src="Purple.png">
+        </div>
+
+        <div class="Price-section">
+            <div class="priceBox">
+                <div class="price-discounted">$89.00</div>
+                <div class="price-original">$109.00</div>
+            </div>
+
+            <div class="star">
+                <span>4.5</span>
+                <i class="fa-solid fa-star"></i>
+            </div>
+        </div>
+
+   
+        <div class="hover-content">
+
+     
+            <div class="color-section">
+                <label>Colors</label>
+                <div class="ColorChoice">
+                    <div class="color-box green active" onmouseover="selectColor('green')"></div>
+                    <div class="color-box red" onmouseover="selectColor('red')"></div>
+                    <div class="color-box violet" onmouseover="selectColor('violet')"></div>
+                </div>
+            </div>
+
+            <div class="size-section">
+                <label>Sizes</label>
+                <div class="SizeChoice">
+                    <div class="size-box size-active">S</div>
+                    <div class="size-box">M</div>
+                    <div class="size-box">L</div>
+                    <div class="size-box">XL</div>
+                    <div class="size-box">XXL</div>
+                </div>
+            </div>
+
+            <div class="btnBox">
+                <button>
+                    Add to Cart
+                    <i class="fa-solid fa-cart-arrow-down"></i>
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function selectColor(color) {
+
+        document.getElementById("greenImg").style.display = "none";
+        document.getElementById("redImg").style.display = "none";
+        document.getElementById("violetImg").style.display = "none";
+
+        document.querySelectorAll(".color-box").forEach(box => {
+            box.classList.remove("active");
+        });
+
+        if (color === "green") {
+            document.getElementById("greenImg").style.display = "block";
+            document.querySelector(".green").classList.add("active");
+        }
+
+        if (color === "red") {
+            document.getElementById("redImg").style.display = "block";
+            document.querySelector(".red").classList.add("active");
+        }
+
+        if (color === "violet") {
+            document.getElementById("violetImg").style.display = "block";
+            document.querySelector(".violet").classList.add("active");
+        }
+    }
+</script>
+
+</body>
+</html>
