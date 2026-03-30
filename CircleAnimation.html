@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        .Container{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);           
+            background-color: rgba(198, 22, 22, 0);
+            height: 200px;
+            width: 200px;
+            gap: 50px;
+            animation: rotate  4s ease-in-out infinite;
+            z-index: 111122;
+        }
+        .box{
+            background-color: black;
+            border-radius: 50%;
+         
+        }
+        
+        .blue{
+            background-color: blue;
+        }
+       .red{
+            background-color: red;
+            border: 3px solid white;
+            box-shadow: 
+                0 0 5px red,
+                0 0 10px red,
+                0 0 20px red,
+                0 0 40px red;
+        }
+        .green{
+            background-color: rgb(0, 223, 0);
+            box-shadow: 
+                0 0 5px rgb(0, 223, 0),
+                0 0 10px rgb(0, 223, 0),
+                0 0 20px rgb(0, 223, 0),
+                0 0 40px rgb(0, 223, 0);
+        }
+        .yellow{
+            background-color: yellow;
+        }
+        .orange{
+            background-color: orange;
+        }
+        .cyan{
+            background-color: cyan;
+        }
+        .blueviolet{
+            background-color: blueviolet;
+        }
+        .pink{
+            background-color: rgb(255, 0, 208);
+        }
+        .skyBlue{
+            background-color: rgb(0, 110, 255);
+        }
+
+        @keyframes rotate {
+            from{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes rotateAnti {
+            from{
+                transform: rotate(360deg);
+            }
+            to{
+                transform: rotate(0deg);
+            }
+        }
+        .Con{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+             position: relative;
+        }
+        .top{
+            transform: translateY(-50px);
+        }
+        .bottom{
+            transform: translateY(50px);
+        }
+        .left{
+            transform: translateX(-50px);
+        }
+        .right{
+            transform: translateX(50px);
+        }
+        .Container2{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);           
+            background-color: rgba(198, 22, 22, 0);
+            height: 200px;
+            width: 200px;
+            gap: 59px;
+            transform: scale(1.7); 
+            animation: rotateAnti 4s ease-in-out infinite;
+        }
+        .box1{
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+        }
+        .Container,
+        .Container2{
+            position: absolute;   /* stack on top */
+        }
+    </style>
+</head>
+<body>
+    <div class="Con">
+        <div class="Container">
+            <div class="box1 red"></div>
+            <div class="box1 red top"></div>
+            <div class="box1 red"></div>
+            <div class="box1 red left"></div>
+            <div class="box green borderGreen"></div>
+            <div class="box1 red right"></div>
+            <div class="box1 red"></div>
+            <div class="box1 red bottom"></div>
+            <div class="box1 red"></div>
+        </div>
+        
+        <div class="Container2">
+            <div class="box1 red"></div>
+            <div class="box1 red top"></div>
+            <div class="box1 red"></div>
+            <div class="box1 red left"></div>
+            <div class="box green borderGreen"></div>
+            <div class="box1 red right"></div>
+            <div class="box1 red"></div>
+            <div class="box1 red bottom"></div>
+            <div class="box1 red"></div>
+        </div>
+    </div>
+ 
+</body>
+</html>
